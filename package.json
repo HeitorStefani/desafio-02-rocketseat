@@ -1,0 +1,28 @@
+{
+  "name": "parte-2-projeto",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx --watch ./src/server",
+    "lint": "npx eslint --fix .",
+    "knex": "npx tsx node_modules/knex/bin/cli.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@fastify/cookie": "^11.0.2",
+    "@rocketseat/eslint-config": "^2.2.2",
+    "dotenv": "^16.4.7",
+    "eslint": "^8.57.1",
+    "fastify": "^5.2.1",
+    "knex": "^3.1.0",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.5",
+    "tsx": "^4.19.3",
+    "zod": "^3.24.2"
+  }
+}
