@@ -2,19 +2,20 @@ import { randomUUID } from 'crypto'
 import { FastifyInstance } from 'fastify'
 import { knex } from '../database'
 import { z } from 'zod'
+// eslint-disable-next-line
+import cookie from '@fastify/cookie'
 
 export async function userHandler(app: FastifyInstance) {
   app.post('/', async (request, response) => {
     const userCreateSchema = z.object({
       name: z.string(),
-      email: z.string(),
+      email: z.string().email(),
     })
 
     let sessionId = request.cookies.sessionId
 
     if (!sessionId) {
       sessionId = randomUUID()
-
       response.setCookie('sessionId', sessionId, {
         path: '/',
         maxAge: 1000 * 60 * 60 * 24 * 7, // 7 dias
@@ -36,6 +37,6 @@ export async function userHandler(app: FastifyInstance) {
       session_id: sessionId,
     })
 
-    return response.status(202).send({ message: 'user create!' })
+    return response.status(201).send({ message: 'User created!' }) // HTTP 201 é mais apropriado para criação
   })
 }

@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx --watch ./src/server",
+    "dev": "tsx ./src/server",
     "lint": "npx eslint --fix .",
-    "knex": "npx tsx node_modules/knex/bin/cli.js"
+    "knex": "npx tsx node_modules/knex/bin/cli.js",
+    "test": "vitest"
   },
   "keywords": [],
   "author": "",
@@ -14,11 +15,14 @@
   "dependencies": {
     "@fastify/cookie": "^11.0.2",
     "@rocketseat/eslint-config": "^2.2.2",
+    "@types/supertest": "^6.0.2",
     "dotenv": "^16.4.7",
     "eslint": "^8.57.1",
     "fastify": "^5.2.1",
     "knex": "^3.1.0",
-    "sqlite3": "^5.1.7"
+    "sqlite3": "^5.1.7",
+    "supertest": "^7.0.0",
+    "vitest": "^3.0.7"
   },
   "devDependencies": {
     "@types/node": "^22.13.5",

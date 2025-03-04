@@ -1,14 +1,5 @@
-import { fastify } from 'fastify'
+import { app } from './app'
 import { env } from './env'
-import { mealsHandler } from './routes/mealsHandler'
-import { userHandler } from './routes/userHandler'
-import cookie from '@fastify/cookie'
-
-const app = fastify()
-
-app.register(cookie)
-app.register(mealsHandler, { prefix: 'meals' })
-app.register(userHandler, { prefix: 'users' })
 
 app
   .listen({
